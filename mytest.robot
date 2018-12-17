@@ -1,3 +1,8 @@
+#http://lovelysystems.github.io/robotframework-androidlibrary/AndroidLibrary.html
+#https://github.com/lovelysystems/robotframework-androidlibrary#readme
+
+#http://randomsync.github.io/robotframework-mqttlibrary/
+#https://github.com/lovelysystems/robotframework-androidlibrary#readme
 *** Settings ***
 Documentation     A test suite with a single test for valid login.
 ...
