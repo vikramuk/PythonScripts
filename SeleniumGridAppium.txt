@@ -1,2 +1,3 @@
+https://cdn.agilitycms.com/sauce-labs/white-papers/dzone-selenium-refcard.pdf
 https://wiki.saucelabs.com/display/DOCS/Python+Example+Script+for+Android+Mobile+Application+Tests
 https://github.com/webrtc/KITE/wiki/Setup-selenium-grid
