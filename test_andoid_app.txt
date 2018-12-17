@@ -1,0 +1,18 @@
+*** Settings ***
+
+Library        AppiumLibrary
+
+Documentation   demo for appium library
+
+Force Tags      demo
+
+ 
+*** Test Cases ***
+
+test_demo
+
+    [Tags]  regression
+
+    Open Application  http://localhost:4723/wd/hub  platformName=Android  platformVersion=5.1.1  deviceName=fd1bee6e  app=com.android.browser  automationName=appium  appPackage=com.android.browser  appActivity=AddBookmarkPage
+
+#http://testnblog.com/appium-up-running-with-robot-framework/

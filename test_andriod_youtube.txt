@@ -1,0 +1,17 @@
+*** Settings ***
+Library AppiumLibrary
+Documentation demo for appium library
+Force Tags demo
+Resource demo/demo_resoure.txt
+
+
+*** Test Cases ***
+test_demo
+    [Tags] 
+    Open Application    http://localhost:4723/wd/hub     platformName=Android    platformVersion=5.1.1    deviceName=fd1bee6e     app=com.google.android.youtube     automationName=appium     appPackage=com.google.android.youtube      appActivity=HomeActivity
+    Wait Until Page Contains    Home    timeout=10
+    Input Text    id=menu_search     Appium tutorial
+    Click Element     id=search_type_icon
+    Close All Applications
+	
+#http://testnblog.com/uiautomatorviewer/

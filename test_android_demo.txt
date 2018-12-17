@@ -1,0 +1,7 @@
+*** Settings ***
+LibraryAppiumLibrary
+ Documentation   demo for appium library
+
+Force Tags      demo
+
+#http://testnblog.com/structure-for-appium-test-cases-robot-framework/

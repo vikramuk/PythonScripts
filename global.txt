@@ -1,0 +1,23 @@
+*** Settings ***
+ Library         AppiumLibrary
+ #Resource        demo_resources.txt
+ #Variables    variables.py
+
+*** Variables ***
+
+*** Keywords ***
+Start Suite Setup
+  Close All Applications
+  Open Application  http://localhost:4723/wd/hub  platformName=Android  platformVersion=5.1.1  deviceName=fd1bee6e  app=com.android.browser  automationName=appium  appPackage=com.android.browser  appActivity=BrowserActivity
+  Sleep     20
+
+Stop Suite Setup
+ Close All Applications
+
+Login Test Setup
+ Portrait
+
+Login Test Teardown
+ Capture Page Screenshot
+
+#http://testnblog.com/structure-for-appium-test-cases-robot-framework/
