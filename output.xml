@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generator="Robot 3.1 (Jython 2.7.0 on java1.8.0_171)" generated="20181217 16:09:34.017">
+<suite source="C:\ProgApps\Jython27\mytest.robot" name="Mytest" id="s1">
+<test name="Valid Login" id="s1-t1">
+<kw name="Open Browser To Login Page">
+<msg level="FAIL" timestamp="20181217 16:09:34.217">No keyword with name 'Open Browser To Login Page' found.</msg>
+<status endtime="20181217 16:09:34.217" starttime="20181217 16:09:34.217" status="FAIL"></status>
+</kw>
+<kw type="teardown" name="Close Browser">
+<msg level="FAIL" timestamp="20181217 16:09:34.233">No keyword with name 'Close Browser' found.</msg>
+<status endtime="20181217 16:09:34.233" starttime="20181217 16:09:34.233" status="FAIL">No keyword with name 'Close Browser' found.</status>
+</kw>
+<status critical="yes" endtime="20181217 16:09:34.233" starttime="20181217 16:09:34.202" status="FAIL">No keyword with name 'Open Browser To Login Page' found.
+
+Also teardown failed:
+No keyword with name 'Close Browser' found.</status>
+</test>
+<doc>A test suite with a single test for valid login.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<status endtime="20181217 16:09:34.233" starttime="20181217 16:09:34.033" status="FAIL"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" name="Mytest" id="s1">Mytest</stat>
+</suite>
+</statistics>
+<errors>
+<msg level="WARN" timestamp="20181217 16:09:34.202">Imported resource file 'C:\ProgApps\Jython27\resource.txt' is empty.</msg>
+</errors>
+</robot>
