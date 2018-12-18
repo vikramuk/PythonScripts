@@ -1,0 +1,34 @@
+#https://www.xoriant.com/blog/product-engineering/robot-framework-mobile-test-automation.html
+#https://www.anexinet.com/blog/mobile-app-testing-robot-framework/
+#https://bitbar.com/how-to-get-started-with-robot-framework-with-example/
+*** Settings ***
+Documentation   To test Calculations in Android Calculator App
+
+Library AppiumLibrary
+
+Suite Setup Open Calculator App
+Suite Teardown Close Application
+
+*** Variables ***
+${DEV.APPIUM_SERVER}= http://127.0.0.1:4723/wd/hub
+${DEV.PLATFORM_VERSION} = 6.0.1
+${DEV.PLATFORM_NAME}= Android
+${DEV.DEVICE_NAME} = XYZ
+${DEV.PACKAGE_NAME} = com.android.calculator
+ appActivity=${DEV.ACTIVITY_NAME} = com.android.calculator.calculator
+
+
+${EQUALS_SIGN} = xpath=//*[containsd(@test,'=')]
+${DISPLAYED_RESULT} = xpath=//*[contains(@resource-id,'id/result')]
+${td_digit_1}=5
+${td_digit_2}=3
+${td_result_add}= 8
+${td_result_sub}= 2
+
+*** Keywords ***
+${displayed_result}  = Get Element Attribute ${DISPLAYED_RESULT} text
+Should be Equal ${displayed_result} ${expected_result}
+
+*** Test cases ***
+
+
