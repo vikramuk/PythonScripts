@@ -13,3 +13,5 @@ Some Links Used
 #http://testnblog.com/uiautomatorviewer/
 
 #http://testnblog.com/structure-for-appium-test-cases-robot-framework/
+
+#https://www.swtestacademy.com/getting-started-robotframework/
