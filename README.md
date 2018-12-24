@@ -18,3 +18,11 @@ Some Links Used
 #https://www.swtestacademy.com/getting-started-robotframework/
 
 #https://www.apriorit.com/dev-blog/569-keyword-driven-testing-robot-framework
+
+https://github.com/lovelysystems/robotframework-androidlibrary#readme
+pip install --upgrade robotframework-androidlibrary
+
+https://github.com/serhatbolsu/robotframework-appiumlibrary
+pip install robotframework-appiumlibrary
+
+http://robotframework.org/robotframework/#standard-libraries
