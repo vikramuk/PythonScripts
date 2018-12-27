@@ -33,3 +33,5 @@ https://github.com/NitorCreations/RobotFramework-EclipseIDE/wiki/Installation
 
 
 AppiumPython: https://qaboy.com/2018/06/27/automation-framework-using-appium-python/
+
+#https://applitools.com/tutorials/appium-web-java.html
