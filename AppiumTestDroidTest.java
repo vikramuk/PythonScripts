@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL; 
 import java.util.concurrent.TimeUnit; 
 import org.openqa.selenium.remote.DesiredCapabilities; 
-import org.openqa.selenium.support. ui.ExpectedConditions; 
+import org.openqa.selenium.support.ui.ExpectedConditions; 
 import org.openqa.selenium.support.ui.WebDriverWait; 
 
 public class AppiumTestDroidAndroid { 
@@ -29,9 +29,9 @@ capabilities.setCapability("testdroid_apiKey", "<< API_Key >>");
 capabilities.setCapability("testdroid_project", "AppiumBook"); 
 capabilities.setCapability("testdroid_testrun", "Android Run 1"); 
 capabilities.setCapability("testdroid_device", "LG Google Nexus 5 6.0.1 -US");   
-capabilities.setCapability("testdroid_app", "af9de10fcddf-4cae-a494-4c86a53e7552/ApiDemos-debug.apk"); 
+capabilities.setCapability("testdroid_app", "DEVICEID/ApiDemos-debug.apk"); 
 // initializing driver object - TestDroid 
-driver = new AndroidDriver(new URL(" http://appium. testdroid.com/wd/hub "), capabilities); 
+driver = new AndroidDriver(new URL(" http://appium.testdroid.com/wd/hub "), capabilities); 
 //initializing  waits 
 driver.manage().timeouts().implicitlyWait(10, TimeUnit. SECONDS); 
 wait = new WebDriverWait(driver, 10); 
