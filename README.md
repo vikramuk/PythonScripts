@@ -35,3 +35,23 @@ https://github.com/NitorCreations/RobotFramework-EclipseIDE/wiki/Installation
 AppiumPython: https://qaboy.com/2018/06/27/automation-framework-using-appium-python/
 
 #https://applitools.com/tutorials/appium-web-java.html
+
+Install Python:
+
+Python 2.7.6 – Latest Python 2.7 release (32 Bit version) -http://www.python.org/download/releases/2.7.6/
+
+PyWin – Windows extensions for Python  -http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/
+
+Python Image Library – Required by the AutoIt Library to capture screenshots -http://www.pythonware.com/products/pil/
+
+WXPython – Required for RIDE to run properly -http://wxpython.org/download.php#msw
+
+Robot Framework Core:
+
+Robot Framework – Robot Framework basic package -https://pypi.python.org/pypi/robotframework
+
+RIDE – The Robot IDE -https://code.google.com/p/robotframework-ride/downloads/list
+
+Robot Framework Libraries:
+
+AutoIT Library – The AutoIt library for automating Windows tests -https://code.google.com/p/robotframework-autoitlibrary/downloads/list
