@@ -55,3 +55,11 @@ RIDE – The Robot IDE -https://code.google.com/p/robotframework-ride/downloads/
 Robot Framework Libraries:
 
 AutoIT Library – The AutoIt library for automating Windows tests -https://code.google.com/p/robotframework-autoitlibrary/downloads/list
+
+For Capabilities: https://seleniumbycharan.com/2016/08/08/launching-native-app-in-your-android-device-using-appium/
+PLATFORM_VERSION 
+PLATFORM_NAME
+DEVICE_NAME
+AVD
+APP_PACKAGE
+APP_ACTIVITY
