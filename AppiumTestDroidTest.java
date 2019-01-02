@@ -37,7 +37,7 @@ driver.manage().timeouts().implicitlyWait(10, TimeUnit. SECONDS);
 wait = new WebDriverWait(driver, 10); 
 // click on 'Accessibility' link 
 wait.until(ExpectedConditions.presenceOfElementLocated( MobileBy.AccessibilityId("Accessibility"))); 
-driver.findElement(MobileBy.AccessibilityId("Acc essibility")).click(); 
+driver.findElement(MobileBy.AccessibilityId("Accessibility")).click(); 
 // click on 'Accessibility Node Querying' link 
 wait.until(ExpectedConditions.presenceOfElementLoc ated(MobileBy.AccessibilityId("Accessibility Node Querying"))); 
 driver.findElement(MobileBy. AccessibilityId("Accessibility Node Querying")). click(); 
