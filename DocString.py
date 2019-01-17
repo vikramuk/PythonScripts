@@ -1,3 +1,4 @@
+'''Test String '''
 class DocString():
     ''' Documentation test
     '''
