@@ -79,3 +79,7 @@ http://index-of.es/Varios-2/Hacking%20with%20Python%20The%20Ultimate%20Beginner'
 https://media.readthedocs.org/pdf/howtothink/latest/howtothink.pdf
 
 https://inventwithpython.com/hackingciphers.pdf
+
+https://repo.zenk-security.com/Programmation/Violent%20Python%20-%20A%20Cookbook%20for%20Hackers,%20Forensic%20Analysts,%20Penetration%20Testers%20and%20Security%20Enginners.pdf
+
+https://7chan.org/pr/src/Violent_Python_A_Cookbook_for_Hackers_Forensic_Ana.pdf
