@@ -63,3 +63,15 @@ DEVICE_NAME
 AVD
 APP_PACKAGE
 APP_ACTIVITY
+
+https://www.oreilly.com/programming/free/files/20-python-libraries-you-arent-using-but-should.pdf
+
+https://www.oreilly.com/programming/free/files/hadoop-with-python.pdf
+
+https://www.oreilly.com/programming/free/files/how-to-make-mistakes-in-python.pdf
+
+https://www.oreilly.com/programming/free/files/functional-programming-python.pdf
+
+https://www.oreilly.com/programming/free/files/python-in-education.pdf
+
+http://index-of.es/Varios-2/Hacking%20with%20Python%20The%20Ultimate%20Beginner's%20Guide.pdf
