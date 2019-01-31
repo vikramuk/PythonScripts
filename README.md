@@ -77,3 +77,5 @@ https://www.oreilly.com/programming/free/files/python-in-education.pdf
 http://index-of.es/Varios-2/Hacking%20with%20Python%20The%20Ultimate%20Beginner's%20Guide.pdf
 
 https://media.readthedocs.org/pdf/howtothink/latest/howtothink.pdf
+
+https://inventwithpython.com/hackingciphers.pdf
