@@ -64,11 +64,11 @@ Description
 curl --header "PRIVATE-TOKEN: 9koXpg98eAheJpvBs5tK" --remote-header-name --remote-name https://gitlab.example.com/api/v4/projects/5/export/download
 https://gitlab.com/api/v4/projects/8473228/export
 
-curl -X POST http://gitlab.com/api/v4/session?login=vikram.uk@gmail.com&password=S3l3ct@123456E
+curl -X POST http://gitlab.com/api/v4/session?login=v.uk@g.com&password=
 curl -X POST http://gitlab.com/api/v4/projects?=private_token=xyz123
 
 curl --header "Authorization: Bearer KQRU97zj3zyFhtyRsH5K" https://gitlab.com/api/v4/user
-https://gitlab.com/api/v4/session --data 'login=vikram.uk@gmail.com&password=S3l3ct@123456E'
+https://gitlab.com/api/v4/session --data 'login=v.uk@.com&password='
 
 https://www.cambus.net/parsing-json-from-command-line-using-python/
 
