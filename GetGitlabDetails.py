@@ -13,14 +13,12 @@ param2 = (
     ('statistics', 'true'),
 )
 
-
 def GetDetails(projectid):
 	prjID=projectid #.rstrip('\n')
-	print (prjID)
+	getProjectStatistics(prjID)
 	getProjectBranches(prjID)
 	getProjectCommits(prjID)
-	getProjectStatistics(prjID)
-	
+		
 def getProjectBranches(prjID):
 	#print ("Am in Branch")
 	URL='https://gitlab.com/api/v4/projects/'+prjID+'/repository/branches'
@@ -28,69 +26,54 @@ def getProjectBranches(prjID):
 	#print (URL)
 	data = r.json()
 	if (r.status_code==200):
-		#print(r.headers)
-		#print(r.headers['content-type'])
 		data = r.json()
-		#print (data)
-		print (data[0]['name'])
-		#BranchName=data["name"]
-		'''
-		BranchID=data['commit']['id']
-		BranchCommiter=data['commit']['committer_name']
-		print("BranchID:%s\n BranchCommiter:%s" %(BranchID,BranchCommiter))
-		time.sleep(2)
-		print (data['name'])
-		print(data['commit'])
-		'''
-
+		print (data[0]['name'],data[0]['commit']['id'])
+		for branches in data:			
+			BranchName =branches['name']
+			BranchID = branches['commit']['short_id']
+			CommitterEmail = branches['commit']['committer_email']
+			print("BranchName:%s\t BranchID:%s\t BranchCommitter:%s " %(BranchName, BranchID,CommitterEmail))
+			
 def getProjectCommits(prjID):
 	#print ("Am in Commits")
 	URL='https://gitlab.com/api/v4/projects/'+prjID+'/repository/commits'
 	r = requests.get(URL, headers=headers)
-	#print (URL)
 	data = r.json()
 	if (r.status_code == 200):
-		#print(r.headers)
-		data = r.json()
-		#print (data)
-		#print (data[0][0]['short_id'])
 		CommitID=data[0]['id']
 		shortID=data[0]['short_id']
 		Commiter=data[0]['committer_name']
-		print("BranchName:%s\n BranchID:%s\n BranchCommiter:%s" %(CommitID, shortID,Commiter))
-		'''
-		time.sleep(2)
-		print (data['id'])
-		print(data['short_id'])
-		'''
-	
+		print("CommitName:%s\t CommitID:%s\t Commiter:%s \n" %(CommitID, shortID,Commiter))
+		for commit in data:			
+			commmitName =commit['id']
+			commitID = commit['short_id']
+			CommitterEmail = commit['committer_email']
+			print("CommitName:%s\t CommitID:%s\t CommitCommitter:%s " %(commmitName, commitID,CommitterEmail))
+			
 def getProjectStatistics(prjID):
 	#print ("Am in Statistics")
 	URL='https://gitlab.com/api/v4/projects/'+prjID
 	r = requests.get(URL, params=param2)
 	data = r.json()
-	#print (data)
 	if (r.status_code == 200):
 		data = r.json()
+		ProjectID =prjID
+		ProjectName =data['name']
+		ProjectNameSpace=data['name_with_namespace']
+		DefBranch=data['default_branch']
+		SSHRepo=data['ssh_url_to_repo']
 		IssueCount=data['open_issues_count']
 		CommitCount=data['statistics']['commit_count']
 		Filesize=data['statistics']['storage_size']
 		Reposize=data['statistics']['repository_size']
-		print("IssueCount:%s\n Commits:%s \n FileSize:%s\n RepoSize:%s" %(IssueCount,CommitCount, Filesize,Reposize))
+		print("ProjectID: %s \t ProjectName %s \t ProjectNameSpace %s \t DefBranch %s \t SSHRepo %s \t IssueCount:%s \t Commits:%s \t FileSize:%s\t RepoSize:%s \n" %(ProjectID,ProjectName,ProjectNameSpace,DefBranch,SSHRepo,IssueCount,CommitCount, Filesize,Reposize))
 	
 def GetProjectDetails():
-
-	'''
-	filepath = "C:\\Users\\vikram.uk\\Desktop\\ProjectList.txt" 
-	with open(filepath) as fp:  
-	   for cnt, line in enumerate(fp):
-		   print("Line {}: {}".format(cnt, line))	
-	   '''
 	try:	
 		ProjectFile = open("C:\\Users\\vikram.uk\\Desktop\\ProjectList.txt", "r")	
 		with open("C:\\Users\\vikram.uk\\Desktop\\ProjectList.txt") as f:
 			content = f.read().splitlines()
-			print (content)			
+			#print (content)			
 	except:
 		print("List of Projects is Empty")
 		exit(0)	
@@ -99,5 +82,4 @@ def GetProjectDetails():
 					#print (projectid)
 					
 if __name__ =="__main__":
-	#Gitlab = gitlab.Gitlab.from_config('Gitlab', ['C:\\Users\\vikram.uk\\Desktop\\python-gitlab.cfg'])
 	GetProjectDetails()
