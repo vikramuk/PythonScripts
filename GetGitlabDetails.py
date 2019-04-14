@@ -1,19 +1,28 @@
 import gitlab, os, sys
 import logging
-import requests, json, time
+import requests, json, time,urllib
+from requests.models import PreparedRequest
+#https://stackoverflow.com/questions/2506379/add-params-to-given-url-in-python
 
 headers = {
     'PRIVATE_TOKEN': '',
 }
+
+param2 = (
+    ('private_token', ''),
+    ('statistics', 'true'),
+)
+
 
 def GetDetails(projectid):
 	prjID=projectid #.rstrip('\n')
 	print (prjID)
 	getProjectBranches(prjID)
 	getProjectCommits(prjID)
+	getProjectStatistics(prjID)
 	
 def getProjectBranches(prjID):
-	print ("Am in Branch")
+	#print ("Am in Branch")
 	URL='https://gitlab.com/api/v4/projects/'+prjID+'/repository/branches'
 	r = requests.get(URL, headers=headers)
 	#print (URL)
@@ -21,7 +30,6 @@ def getProjectBranches(prjID):
 	if (r.status_code==200):
 		#print(r.headers)
 		#print(r.headers['content-type'])
-		#print(r.json())
 		data = r.json()
 		#print (data)
 		print (data[0]['name'])
@@ -36,15 +44,13 @@ def getProjectBranches(prjID):
 		'''
 
 def getProjectCommits(prjID):
-	print ("Am in Commits")
+	#print ("Am in Commits")
 	URL='https://gitlab.com/api/v4/projects/'+prjID+'/repository/commits'
 	r = requests.get(URL, headers=headers)
 	#print (URL)
 	data = r.json()
 	if (r.status_code == 200):
 		#print(r.headers)
-		#print(r.headers['content-type'])
-		#print(r.json())
 		data = r.json()
 		#print (data)
 		#print (data[0][0]['short_id'])
@@ -58,9 +64,19 @@ def getProjectCommits(prjID):
 		print(data['short_id'])
 		'''
 	
-def getProjectStatistics():
-	print ("Am in Statistics")
-	pass
+def getProjectStatistics(prjID):
+	#print ("Am in Statistics")
+	URL='https://gitlab.com/api/v4/projects/'+prjID
+	r = requests.get(URL, params=param2)
+	data = r.json()
+	#print (data)
+	if (r.status_code == 200):
+		data = r.json()
+		IssueCount=data['open_issues_count']
+		CommitCount=data['statistics']['commit_count']
+		Filesize=data['statistics']['storage_size']
+		Reposize=data['statistics']['repository_size']
+		print("IssueCount:%s\n Commits:%s \n FileSize:%s\n RepoSize:%s" %(IssueCount,CommitCount, Filesize,Reposize))
 	
 def GetProjectDetails():
 
@@ -80,7 +96,7 @@ def GetProjectDetails():
 		exit(0)	
 	for projectid in content:
 					GetDetails(projectid)
-					print (projectid)
+					#print (projectid)
 					
 if __name__ =="__main__":
 	#Gitlab = gitlab.Gitlab.from_config('Gitlab', ['C:\\Users\\vikram.uk\\Desktop\\python-gitlab.cfg'])
