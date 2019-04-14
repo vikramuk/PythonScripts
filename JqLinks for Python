@@ -1,0 +1,69 @@
+https://gitlab.com/api/v4/projects/8473228?private_token=&statistics=true
+
+https://jqplay.org/s/Rog9ZugjW-
+https://jqplay.org/s/lOf6--Qfwu
+https://gitlab.com/api/v4/projects/8473228/repository/commits?private_token=
+https://gitlab.com/api/v4/projects/8473228/repository/branches?private_token=
+curl -X GET --header "PRIVATE_TOKEN:" https://gitlab.com/api/v4/projects
+https://jqplay.org/s/rDPhRVFSsj
+
+curl -s -X GET --header "PRIVATE_TOKEN:" https://gitlab.com/api/v4/projects/8473228/repository/commits|jq '.[] |[.id, .short_id,.parent_ids,.title,.message]'
+
+https://stackoverflow.com/questions/43075069/how-to-get-the-last-commits-status-in-a-branch-of-gitlab-projects?rq=1
+
+https://gitlab.com/api/v4/users?username=vikram_u_k
+
+-----
+import gitlab, os, time, sys
+
+Source = gitlab.Gitlab.from_config('SOURCE', ['python-gitlab.cfg'])
+projects = Source.projects.get(sys.argv[1],statistics=True)
+issues = projects.issues.list()
+for issue in issues:
+    print(issue)
+
+https://gitlab.com/api/v4/projects/8473228/repository/commits?private_token=&statistics=true
+https://gitlab.com/api/v4/users/2850828/projects/?private_token=
+https://gitlab.com/api/v4/projects/10162300/repository/commits?private_token=
+----
+
+#!/bin/bash
+
+# edit this if needed
+GITLAB_DOMAIN=gitlab.com
+GITLAB_PORT=443
+GITLAB_BASE_URL=https://gitlab.com
+PER_PAGE=1000
+# edit this 
+PRIVATE_TOKEN=
+echo "GET /projects"
+projects=$(curl -s  "$GITLAB_BASE_URL/api/v4/users/2850828/projects?private_token=$PRIVATE_TOKEN&page=1&per_page=$PER_PAGE" | \
+    jq -r '. | map([.name, .id|tostring ] | join("|")) | join("\n")')
+echo "$projects"
+while read -r project; do
+    IFS='|' read -ra project_t <<< "$project"
+    # project name : ${project_t[0]}
+    # project id : ${project_t[1]}
+    echo "GET /projects/${project_t[1]}/repository/branches for project ${project_t[0]}"
+    commits=$(curl -s "$GITLAB_BASE_URL/api/v4/projects/${project_t[1]}/repository/branches?private_token=$PRIVATE_TOKEN&page=1&per_page=$PER_PAGE" | \
+        jq -r '. | map([ .name , .commit.id|tostring ] | join("|")) | join("\n")')
+    while read -r commit; do
+        IFS='|' read -ra commits_t <<< "$commit"
+        # branch name : ${commits_t[0]}
+        # last commit sha for this branch : ${commits_t[1]}
+        echo "GET /projects/${project_t[1]}/repository/commits/${commits_t[1]}/statuses"
+s        statuses=$(curl -s "$GITLAB_BASE_URL/api/v4/projects/${project_t[1]}/repository/commits/${commits_t[1]}/statuses?private_token=$PRIVATE_TOKEN" | \
+            jq -r '. | map([.status, .name] | join("|")) | join("\n")')
+        if [ ! -z "$statuses" ]; then
+            while read -r status; do
+                IFS='|' read -ra status_t <<< "$status"
+                # status value : ${status_t[0]}
+                # status name : ${status_t[1]}
+                echo "[PROJECT ${project_t[0]}] [BRANCH ${commits_t[0]}] [COMMIT ${commits_t[1]}] [STATUS ${status_t[1]}] : ${status_t[0]}"
+            done <<< "$statuses"
+        else
+            echo "[PROJECT ${project_t[0]}] [BRANCH ${commits_t[0]}] [COMMIT ${commits_t[1]}] : no status found"
+        fi
+    done <<< "$commits"
+    echo "------"
+done <<< "$projects"
